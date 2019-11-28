@@ -1,0 +1,14 @@
+{
+  "name": "cordova-plugin-tel-and-sms",
+  "version": "1.0.0",
+  "description": "tel and sms cordova plugin",
+  "cordova": {
+    "id": "cordova-plugin-tel-and-sms",
+    "platforms": []
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "vince huang",
+  "license": "Apache-2.0"
+}

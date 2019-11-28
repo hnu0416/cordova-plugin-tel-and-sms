@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-tel-and-sms" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-tel-and-sms</name>
+    <js-module name="cordova-plugin-tel-and-sms" src="www/cordova-plugin-tel-and-sms.js">
+        <clobbers target="window.callTelOrSMS" />
+    </js-module>
+        <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="callTELAndSMSPlugin" >
+                <param name="android-package" value="org.apache.cordova.telandsms.TELAndSMS"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/TELAndSMS.java" target-dir="src/org/apache/cordova/telandsms" />
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CALL_PHONE"/>
+            <uses-permission android:name="android.permission.SEND_SMS"/>
+            <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        </config-file>
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="callTELAndSMSPlugin">
+                <param name="ios-package" value="TELAndSMS"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/TELAndSMS.h" />
+        <source-file src="src/ios/TELAndSMS.m" />
+        <framework src="CallKit.framework" />
+        <framework src="CoreTelephony.framework" />
+    </platform>
+</plugin>
